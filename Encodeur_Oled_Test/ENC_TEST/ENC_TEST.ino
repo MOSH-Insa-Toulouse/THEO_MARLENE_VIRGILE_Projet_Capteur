@@ -3,36 +3,56 @@
 #define encoder0PinA  3  //CLK Output A Do not use other pin for clock as we are using interrupt
 #define encoder0PinB  4  //DT Output B
 #define Switch 2 // Switch connection if available
+volatile unsigned int encoder0Menu_temp = 0;
 volatile unsigned int encoder0Menu = 0;
 volatile unsigned int Menu_State = 0 ;
 
 volatile unsigned int action_encoder = 0; // retient quelle action effectuer pour l'encodeur
+volatile unsigned int temps_acquisition_temp = 0;
 volatile unsigned int temps_acquisition = 0;
+
+int State;
+int Old_State;
 
   // Fonctions Encodeur
 
 // doEncoder increments or decrements the variable encoder0Menu that is used to set and chose actions, between 4 of them
 void doEncoder() {
 
+  State = digitalRead(encoder0PinA);
+
   if (action_encoder == 0) {
   
-    if (digitalRead(encoder0PinB)==HIGH) {
-      encoder0Menu = (encoder0Menu + 1) % 4;
-    } 
-    else {
-      encoder0Menu = (encoder0Menu - 1) % 4;
+    if (State != Old_State)
+    {
+      if (digitalRead(encoder0PinB) != State)
+      {
+        encoder0Menu_temp = (encoder0Menu_temp + 1) % 8;
+        encoder0Menu = encoder0Menu_temp/2;
+      }
+      else {
+        encoder0Menu_temp = (encoder0Menu_temp - 1) % 8;
+        encoder0Menu = encoder0Menu_temp/2;
+      }
     }
 
   }
 
   else if (action_encoder == 1) {
 
-    if (digitalRead(encoder0PinB)==HIGH) {
-      temps_acquisition = (encoder0Menu + 1) % 100;
-    } 
-    else {
-      temps_acquisition = (encoder0Menu - 1) % 100;
+    if (State != Old_State)
+    {
+      if (digitalRead(encoder0PinB) != State)
+      {
+        temps_acquisition_temp = (temps_acquisition_temp + 1) % 60;
+        temps_acquisition = temps_acquisition_temp / 2;
+      }
+      else {
+        temps_acquisition_temp = (temps_acquisition_temp - 1) % 60;
+        temps_acquisition = temps_acquisition_temp / 2;
+      }
     }
+    
   }
 }
 
@@ -66,8 +86,10 @@ void setup() {
   pinMode(encoder0PinB, INPUT); 
   digitalWrite(encoder0PinB, HIGH);       // turn on pullup resistor
 
+  pinMode(Switch, INPUT_PULLUP);
+
   attachInterrupt(digitalPinToInterrupt(3), doEncoder, RISING); 
-  attachInterrupt(digitalPinToInterrupt(2), doEncoderButton, RISING); 
+  attachInterrupt(digitalPinToInterrupt(2), doEncoderButton, FALLING); 
 
 }
 
@@ -83,6 +105,6 @@ void loop() {
   Serial.print(" Temps d'acquisition : ");
   Serial.println(temps_acquisition);
 
-  // Il faut debounce et tout trop dur wola
+  // ENCODEUR OK !
 
 }
