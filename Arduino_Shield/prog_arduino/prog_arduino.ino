@@ -3,10 +3,22 @@
 #define encoder0PinA  3  //CLK Output A Do not use other pin for clock as we are using interrupt
 #define encoder0PinB  4  //DT Output B
 #define Switch 2 // Switch connection if available
+volatile unsigned int encoder0Menu_temp = 0;
 volatile unsigned int encoder0Menu = 0;
 volatile unsigned int Menu_State = 0 ;
 
-  // Oled
+volatile unsigned int action_encoder = 0; // retient quelle action effectuer pour l'encodeur
+volatile unsigned int temps_acquisition_temp = 0;
+volatile unsigned int temps_acquisition = 0;
+
+int temps_choisi = 0;
+
+int State;
+int Old_State;
+
+  // Oled 
+
+  // if any problem occurs make Ctrl+Maj+i and add Adafruit_BusIO_Register , Adafruit_SSD1306 , Adafruit_GFX
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -37,58 +49,90 @@ SoftwareSerial Serial_Phone(rxPin ,txPin); //D�finition du software serial
 
 #define ADCpin  0
 
-volatile unsigned int action_encoder = 0; // retient quelle action effectuer pour l'encodeur
-volatile unsigned int temps_acquisition = 0;
+int resistance = 0;
+float tension;
+int R1 = 100;
+int R2 = 1;
+int R3 = 100;
+int R5 = 10;
+int voltage_ADC;
+
 
   // Fonctions Encodeur
 
 // doEncoder increments or decrements the variable encoder0Menu that is used to set and chose actions, between 4 of them
 void doEncoder() {
 
+  State = digitalRead(encoder0PinA);
+
   if (action_encoder == 0) {
   
-    if (digitalRead(encoder0PinB)==HIGH) {
-      encoder0Menu = (encoder0Menu + 1) % 4;
-    } 
-    else {
-      encoder0Menu = (encoder0Menu - 1) % 4;
+    if (State != Old_State)
+    {
+      if (digitalRead(encoder0PinB) != State)
+      {
+        encoder0Menu_temp = (encoder0Menu_temp + 1) % 8;
+        encoder0Menu = encoder0Menu_temp/2;
+      }
+      else {
+        encoder0Menu_temp = (encoder0Menu_temp - 1) % 8;
+        encoder0Menu = encoder0Menu_temp/2;
+      }
     }
 
   }
 
-  else if (action_encoder == 1) {
+  else if ((action_encoder == 1) and (temps_choisi == 0) and (Menu_State == 2)) {
 
-    if (digitalRead(encoder0PinB)==HIGH) {
-      temps_acquisition = (encoder0Menu + 1) % 100;
-    } 
-    else {
-      temps_acquisition = (encoder0Menu - 1) % 100;
+    if (State != Old_State)
+    {
+      if (digitalRead(encoder0PinB) != State)
+      {
+        temps_acquisition_temp = (temps_acquisition_temp + 1) % 60;
+        temps_acquisition = temps_acquisition_temp / 2;
+      }
+      else {
+        temps_acquisition_temp = (temps_acquisition_temp - 1) % 60;
+        temps_acquisition = temps_acquisition_temp / 2;
+      }
     }
+    
   }
 }
+
 
 // doEncoderButton is activated when the button is clicked and affects a variable Menu_State with the encoder0Menu value
 void doEncoderButton() {
 
   if (action_encoder == 0) {
     Menu_State = encoder0Menu ;
+    action_encoder = 1 ;
+    }
 
-    if (encoder0Menu == 1) {
-      action_encoder = 1 ;  
+  else if ((action_encoder == 1) and (Menu_State == 2)) {
+
+    if (temps_choisi == 0) {
+      temps_choisi = 1;
+    }
+
+    else if (temps_choisi == 1) {
+      action_encoder = 0 ;
+      temps_choisi = 0;
     }
   }
 
   else if (action_encoder == 1) {
     action_encoder = 0 ;
   }
-  
+
+  delay(200);
 }
 
 
 
 void setup() {
 
-  Serial.begin (9600);
+  Serial.begin(9600);
 
   // encodeur rotatoire
 
@@ -98,8 +142,11 @@ void setup() {
   pinMode(encoder0PinB, INPUT); 
   digitalWrite(encoder0PinB, HIGH);       // turn on pullup resistor
 
+  pinMode(Switch, INPUT_PULLUP);
+
   attachInterrupt(digitalPinToInterrupt(3), doEncoder, RISING); 
-  attachInterrupt(digitalPinToInterrupt(2), doEncoderButton, RISING); 
+  attachInterrupt(digitalPinToInterrupt(2), doEncoderButton, FALLING); 
+
 
   // Bluetooth
 
@@ -121,11 +168,6 @@ void setup() {
 
   // Clear the buffer
   display.clearDisplay();
-
-  display.setTextSize(1);      // Normal 1:1 pixel scale
-  display.setTextColor(SSD1306_WHITE); // Draw white text
-  display.setCursor(0, 0);     // Start at top-left corner
-  display.println(F("Setup ok !"));
   
 } 
 
@@ -139,78 +181,136 @@ void loop() {
   
     if (encoder0Menu == 0) {
       // affiche les actions possibles du menu choisi
+      display.clearDisplay();
       display.setTextSize(1);      // Normal 1:1 pixel scale
       display.setTextColor(SSD1306_WHITE); // Draw white text
       display.setCursor(0, 0);     // Start at top-left corner
-      display.println(F("MENU 1 : Relevé de résistance"));
+      display.println(F("MENU 1 : \nReleve de resistance"));
+      display.display();
     }
   
     else if (encoder0Menu == 1) {
+      display.clearDisplay();
       display.setTextSize(1);      // Normal 1:1 pixel scale
       display.setTextColor(SSD1306_WHITE); // Draw white text
       display.setCursor(0, 0);     // Start at top-left corner
-      display.println(F("MENU 2 : Définir temps d'acquisition"));
+      display.println(F("MENU 2 : \nReleve de tension"));
+      display.display();
     }
   
     else if (encoder0Menu == 2) {
+      display.clearDisplay();
       display.setTextSize(1);      // Normal 1:1 pixel scale
       display.setTextColor(SSD1306_WHITE); // Draw white text
       display.setCursor(0, 0);     // Start at top-left corner
-      display.println(F("MENU 3 : Modifier le baudrate"));
+      display.println(F("MENU 3 : \nDefinir le temps \nd'aquisition"));
+      display.display();
     }
   
     else if (encoder0Menu == 3) {
+      display.clearDisplay();
       display.setTextSize(1);      // Normal 1:1 pixel scale
       display.setTextColor(SSD1306_WHITE); // Draw white text
       display.setCursor(0, 0);     // Start at top-left corner
       display.println(F("MENU 4 : "));
+      display.display();
     }  
 
   }
 
   // Encodeur et OLED -> action
-  if (Menu_State == 0) {
-    // effectue les actions du menu choisi
-    
-      // Relevé ADC
-    int voltage_ADC = analogRead(ADCpin) / 4;
-      // Bluetooth
-    Serial_Phone.write(voltage_ADC);
-    
-  }
   
-  else if (Menu_State == 1) {
+  else if (action_encoder == 1) {
+ 
+    if (Menu_State == 0) {
+    
+        // Relevé ADC
+      voltage_ADC = analogRead(ADCpin) / 4;
+        // Bluetooth
+      Serial_Phone.write(voltage_ADC);
 
-    if (action_encoder == 1) {
+      resistance = (R1 * (1 + (R3/R2)) * (5 / (voltage_ADC*0.01952)) - R1 - R5) / 1000;
 
+      display.clearDisplay();
       display.setTextSize(1);      // Normal 1:1 pixel scale
       display.setTextColor(SSD1306_WHITE); // Draw white text
       display.setCursor(0, 0);     // Start at top-left corner
-      display.println("Temps d'acquisition : ");
+      display.println("Resistance : ");
+      display.print(resistance);
+      display.println(" MOhm  - Envoi BT");
+      display.println("\n        Press to quit");
+      display.display();
+      
+    
+    }
+  
+    else if (Menu_State == 1) {
+
+        // Relevé ADC
+      voltage_ADC = analogRead(ADCpin) / 4;
+        // Bluetooth
+      Serial_Phone.write(voltage_ADC);
+
+      tension = voltage_ADC * 0.01952;
+      
+      display.clearDisplay();
+      display.setTextSize(1);      // Normal 1:1 pixel scale
+      display.setTextColor(SSD1306_WHITE); // Draw white text
+      display.setCursor(0, 0);     // Start at top-left corner
+      display.println("Tension : ");
+      display.print(tension);
+      display.println(" V   - Envoi BT");
+      display.println("\n        Press to quit");
+      display.display();
       
     }
 
-    if (action_encoder == 0) {
+    else if (Menu_State == 2) {
 
-      Serial_Phone.write(temps_acquisition);
+      if (temps_choisi == 0) {
+
+        display.clearDisplay();
+        display.setTextSize(1);      // Normal 1:1 pixel scale
+        display.setTextColor(SSD1306_WHITE); // Draw white text
+        display.setCursor(0, 0);     // Start at top-left corner
+        display.println("Temps d'acquisition :");
+        display.print(temps_acquisition);
+        display.println(" s");
+        display.println("\n       Press to chose");
+        display.display();
+
+      }
+
+      else if (temps_choisi == 1) {
+
+        display.clearDisplay();
+        display.setTextSize(1);      // Normal 1:1 pixel scale
+        display.setTextColor(SSD1306_WHITE); // Draw white text
+        display.setCursor(0, 0);     // Start at top-left corner
+        display.println("Temps d'acquisition :");
+        display.print(temps_acquisition);
+        display.println(" s   - Envoi BT");
+        display.println("\n        Press to quit");
+        display.display();
+
+        Serial_Phone.write(temps_acquisition);
+
+      }
+    
     }
+    else if (Menu_State == 3) {
     
-  }
-  else if (Menu_State == 2) {
+      display.clearDisplay();
+      display.setTextSize(1);      // Normal 1:1 pixel scale
+      display.setTextColor(SSD1306_WHITE); // Draw white text
+      display.setCursor(0, 0);     // Start at top-left corner
+      display.println("Pas de menu");
+      display.println("");
+      display.println("\n        Press to quit");
+      display.display();
 
-    display.setTextSize(1);      // Normal 1:1 pixel scale
-    display.setTextColor(SSD1306_WHITE); // Draw white text
-    display.setCursor(0, 0);     // Start at top-left corner
-    display.println("Pas de menu");
-    
-  }
-  else if (Menu_State == 3) {
-    
-    display.setTextSize(1);      // Normal 1:1 pixel scale
-    display.setTextColor(SSD1306_WHITE); // Draw white text
-    display.setCursor(0, 0);     // Start at top-left corner
-    display.println("Pas de menu");
+    }
 
-}
+  }
 
 }
