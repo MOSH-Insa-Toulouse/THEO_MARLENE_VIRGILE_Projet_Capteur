@@ -1,4 +1,4 @@
-  // encoder
+  // Rotary Encoder
 
 #define encoder0PinA  3  //CLK Output A Do not use other pin for clock as we are using interrupt
 #define encoder0PinB  4  //DT Output B
@@ -49,6 +49,8 @@ SoftwareSerial Serial_Phone(rxPin ,txPin); //D�finition du software serial
 
 #define ADCpin  0
 
+  // Global variables 
+
 int resistance = 0;
 float tension;
 int R1 = 100;
@@ -60,7 +62,7 @@ int voltage_ADC;
 
   // Fonctions Encodeur
 
-// doEncoder increments or decrements the variable encoder0Menu that is used to set and chose actions, between 4 of them
+// doEncoder increments or decrements the variable encoder0Menu that is used to navigate into menues, between 4 of them, also used to increments the "temps_acquisition" variable
 void doEncoder() {
 
   State = digitalRead(encoder0PinA);
@@ -101,7 +103,7 @@ void doEncoder() {
 }
 
 
-// doEncoderButton is activated when the button is clicked and affects a variable Menu_State with the encoder0Menu value
+// doEncoderButton is activated when the button is clicked and affects a variable Menu_State with the encoder0Menu value, also checks if the time is chosen when the third menu is activated
 void doEncoderButton() {
 
   if (action_encoder == 0) {
@@ -128,6 +130,16 @@ void doEncoderButton() {
   delay(200);
 }
 
+  // Fonctions de simplification
+
+void setup_display() {
+
+  display.clearDisplay();
+  display.setTextSize(1);      // Normal 1:1 pixel scale
+  display.setTextColor(SSD1306_WHITE); // Draw white text
+  display.setCursor(0, 0);     // Start at top-left corner
+  
+}
 
 
 void setup() {
@@ -181,37 +193,25 @@ void loop() {
   
     if (encoder0Menu == 0) {
       // affiche les actions possibles du menu choisi
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println(F("MENU 1 : \nReleve de resistance"));
       display.display();
     }
   
     else if (encoder0Menu == 1) {
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println(F("MENU 2 : \nReleve de tension"));
       display.display();
     }
   
     else if (encoder0Menu == 2) {
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println(F("MENU 3 : \nDefinir le temps \nd'aquisition"));
       display.display();
     }
   
     else if (encoder0Menu == 3) {
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println(F("MENU 4 : "));
       display.display();
     }  
@@ -231,10 +231,7 @@ void loop() {
 
       resistance = (R1 * (1 + (R3/R2)) * (5 / (voltage_ADC*0.01952)) - R1 - R5) / 1000;
 
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println("Resistance : ");
       display.print(resistance);
       display.println(" MOhm  - Envoi BT");
@@ -253,10 +250,7 @@ void loop() {
 
       tension = voltage_ADC * 0.01952;
       
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println("Tension : ");
       display.print(tension);
       display.println(" V   - Envoi BT");
@@ -269,10 +263,7 @@ void loop() {
 
       if (temps_choisi == 0) {
 
-        display.clearDisplay();
-        display.setTextSize(1);      // Normal 1:1 pixel scale
-        display.setTextColor(SSD1306_WHITE); // Draw white text
-        display.setCursor(0, 0);     // Start at top-left corner
+        setup_display();
         display.println("Temps d'acquisition :");
         display.print(temps_acquisition);
         display.println(" s");
@@ -283,10 +274,7 @@ void loop() {
 
       else if (temps_choisi == 1) {
 
-        display.clearDisplay();
-        display.setTextSize(1);      // Normal 1:1 pixel scale
-        display.setTextColor(SSD1306_WHITE); // Draw white text
-        display.setCursor(0, 0);     // Start at top-left corner
+        setup_display();
         display.println("Temps d'acquisition :");
         display.print(temps_acquisition);
         display.println(" s   - Envoi BT");
@@ -300,10 +288,7 @@ void loop() {
     }
     else if (Menu_State == 3) {
     
-      display.clearDisplay();
-      display.setTextSize(1);      // Normal 1:1 pixel scale
-      display.setTextColor(SSD1306_WHITE); // Draw white text
-      display.setCursor(0, 0);     // Start at top-left corner
+      setup_display();
       display.println("Pas de menu");
       display.println("");
       display.println("\n        Press to quit");
