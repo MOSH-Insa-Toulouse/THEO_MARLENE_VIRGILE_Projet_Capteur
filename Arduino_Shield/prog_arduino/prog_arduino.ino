@@ -164,6 +164,7 @@ void setup() {
 
   pinMode(rxPin,INPUT);
   pinMode(txPin,OUTPUT);
+  Serial_Phone.
   Serial_Phone.begin(baudrate);
 
   // Oled
@@ -196,12 +197,14 @@ void loop() {
       setup_display();
       display.println(F("MENU 1 : \nReleve de resistance"));
       display.display();
+      delay(25);
     }
   
     else if (encoder0Menu == 1) {
       setup_display();
       display.println(F("MENU 2 : \nReleve de tension"));
       display.display();
+      delay(25);
     }
   
     else if (encoder0Menu == 2) {
