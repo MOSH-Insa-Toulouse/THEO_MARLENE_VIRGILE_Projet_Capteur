@@ -228,6 +228,9 @@ void loop() {
       voltage_ADC = analogRead(ADCpin) / 4;
         // Bluetooth
       Serial_Phone.write(voltage_ADC);
+      delay(500);
+      Serial.print(voltage_ADC + String(" "));
+      Serial.println(millis());
 
       resistance = (R1 * (1 + (R3/R2)) * (5 / (voltage_ADC*0.01952)) - R1 - R5) / 1000;
 
