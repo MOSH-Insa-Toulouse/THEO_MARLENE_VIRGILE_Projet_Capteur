@@ -164,7 +164,6 @@ void setup() {
 
   pinMode(rxPin,INPUT);
   pinMode(txPin,OUTPUT);
-  Serial_Phone.
   Serial_Phone.begin(baudrate);
 
   // Oled
@@ -197,14 +196,12 @@ void loop() {
       setup_display();
       display.println(F("MENU 1 : \nReleve de resistance"));
       display.display();
-      delay(25);
     }
   
     else if (encoder0Menu == 1) {
       setup_display();
       display.println(F("MENU 2 : \nReleve de tension"));
       display.display();
-      delay(25);
     }
   
     else if (encoder0Menu == 2) {
@@ -236,8 +233,14 @@ void loop() {
 
       setup_display();
       display.println("Resistance : ");
-      display.print(resistance);
-      display.println(" MOhm  - Envoi BT");
+      if (resistance != 0) {
+        display.print(resistance);
+        display.println(" MOhm  - Envoi BT");
+      }
+      else {
+        display.print("Infini");
+        display.println("   - Envoi BT");
+      }
       display.println("\n        Press to quit");
       display.display();
       
