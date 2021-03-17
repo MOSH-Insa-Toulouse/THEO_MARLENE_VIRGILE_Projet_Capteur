@@ -40,8 +40,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
   // Bluetooth
 
 #include <SoftwareSerial.h>
-#define rxPin 11 //Broche 11 en tant que RX, � raccorder sur TX du HC-05
-#define txPin 10 //Broche 10 en tant que RX, � raccorder sur TX du HC-05
+#define rxPin 10 //Broche 10 en tant que RX, � raccorder sur TX du HC-05
+#define txPin 11 //Broche 11 en tant que RX, � raccorder sur TX du HC-05
 #define baudrate 9600 
 SoftwareSerial Serial_Phone(rxPin ,txPin); //D�finition du software serial
 
