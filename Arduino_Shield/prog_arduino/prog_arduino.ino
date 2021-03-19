@@ -45,6 +45,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define baudrate 9600 
 SoftwareSerial Serial_Phone(rxPin ,txPin); //D�finition du software serial
 
+int byte_sent;
+int Write;
+
   // Transimp
 
 #define ADCpin  0
@@ -221,6 +224,14 @@ void loop() {
   // Encodeur et OLED -> action
   
   else if (action_encoder == 1) {
+
+    byte_sent = Serial_Phone.read;
+    if (byte_sent == 1) {
+      Write = 1;
+    }
+    else if (byte_sent == 0) {
+      Write = 0;
+    }
  
     if (Menu_State == 0) {
     

@@ -31,7 +31,9 @@ void loop() {
   int voltage_ADC = analogRead(ADCpin) / 4;
     // Bluetooth
   Serial_Phone.write(voltage_ADC);
-  Serial.println(voltage_ADC);
+  Serial.print(voltage_ADC + String(" "));
+
+  Serial.println(Serial_Phone.read());
 
   delay(200);
 
