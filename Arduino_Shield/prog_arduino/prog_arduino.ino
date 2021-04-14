@@ -11,6 +11,10 @@ volatile unsigned int action_encoder = 0; // retient quelle action effectuer pou
 volatile unsigned int temps_acquisition_temp = 0;
 volatile unsigned int temps_acquisition = 0;
 
+volatile unsigned int val_R2_temp = 0;
+volatile unsigned int val_R2 = 0;
+
+int val_choisie = 0;
 int temps_choisi = 0;
 
 int State;
@@ -51,10 +55,10 @@ SoftwareSerial Serial_Phone(rxPin ,txPin); //D�finition du software serial
 
   // Global variables 
 
-int resistance = 0;
+float resistance = 0;
 float tension;
 int R1 = 100;
-int R2 = 1;
+int R2 = 22;
 int R3 = 100;
 int R5 = 10;
 int voltage_ADC;
@@ -100,6 +104,22 @@ void doEncoder() {
     }
     
   }
+
+  else if ((action_encoder == 1) and (val_choisie == 0) and (Menu_State == 3)) {
+
+    if (State != Old_State)
+    {
+      if (digitalRead(encoder0PinB) != State)
+      {
+        val_R2_temp = (val_R2_temp + 1) % 100;
+        val_R2 = val_R2_temp / 2;
+      }
+      else {
+        val_R2_temp = (val_R2_temp - 1) % 100;
+        val_R2 = val_R2_temp / 2;
+      }
+    }
+  }
 }
 
 
@@ -120,6 +140,19 @@ void doEncoderButton() {
     else if (temps_choisi == 1) {
       action_encoder = 0 ;
       temps_choisi = 0;
+    }
+  }
+
+  else if ((action_encoder == 1) and (Menu_State == 3)) {
+
+    if (val_choisie == 0) {
+      val_choisie = 1;
+    }
+
+    else if (val_choisie == 1) {
+      action_encoder = 0 ;
+      val_choisie = 0;
+      R2 = val_R2;
     }
   }
 
@@ -212,7 +245,7 @@ void loop() {
   
     else if (encoder0Menu == 3) {
       setup_display();
-      display.println(F("MENU 4 : "));
+      display.println(F("MENU 4 : \nChanger la valeur\nde R2"));
       display.display();
     }  
 
@@ -296,13 +329,30 @@ void loop() {
     
     }
     else if (Menu_State == 3) {
-    
-      setup_display();
-      display.println("Pas de menu");
-      display.println("");
-      display.println("\n        Press to quit");
-      display.display();
 
+      if (val_choisie == 0) {
+    
+        setup_display();
+        display.println("Valeur de R2 :");
+        display.print(val_R2);
+        display.println(" kOhm");
+        display.println("\n        Press to chose");
+        display.display();
+
+      }
+
+      else if (val_choisie == 1) {
+
+        setup_display();
+        display.println("Valeur de R2 :");
+        display.print(val_R2);
+        display.println(" kOhm   - Envoi BT");
+        display.println("\n        Press to quit");
+        display.display();
+
+        Serial_Phone.write(val_R2);
+
+      }
     }
 
   }
