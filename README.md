@@ -13,7 +13,7 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
 
 * [1. Description du projet et détail des livrables](#PremiereSection) 
 * [2. Arduino](#DeuxiemeSection)
-  * [2.1. Bibliothèques utilisées](#DeuxiemeSection1)
+  * [2.1. Librairies utilisées](#DeuxiemeSection1)
   * [2.2. Code Arduino](#DeuxiemeSection2)
 * [3. KICAD](#TroisiemeSection)  
   * [Symboles et empreintes](#TroisiemeSection1)
@@ -32,11 +32,27 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
 
 ## 1. Description du projet et détail des livrables
 
-Dans un premier temps, nous avons réalisé un code Arduino fonctionnel permettant de contrôler un amplificateur transimpédance, un encodeur rotatoire, un écran OLED ainsi qu'un module Bluetooth. Nous l'avons ensuite testé en effectuant nos premiers branchements.
-Ensuite, nous avons réalisé le design de notre shield à l'aide du logiciel *KICAD*, nous l'avons fabriqué, puis nous avons assemblé nos composants dessus. 
-A la suite de cela, nous avons utilisé le logiciel *MIT App Inventor* afin de développer une application téléphone APK, capable de communiquer et recevoir des données à distance à l'aide du module Bluetooth (notamment de récupérer la résistance ressentie par le capteur et de l'afficher sur un graphique). 
-Nous avons également designé puis réalisé, un banc de mesure en impression 3D, qui, à l'aide d'un servomoteur nous permet de caractériser la réponse en déformation de nos futurs capteurs. 
-Finalement, nous sommes passés à la phase de tests et avons créé nos capteurs, en les "coloriant" avec divers types de crayons à papier (HB,B,...). Nous avons ensuite caractérisé ces derniers en récupérant leur résistance en fonction de leur déformation.
+Liste des livrables :
+
+- [x] Un code Arduino permettant une mesure de résistance et un contrôle des fonctionnalités Bluetooth, OLED... 
+- [x] Un shield PCB
+- [x] Une application android APK 
+- [x] Un protocole du banc de test
+- [x] Une datasheet des capteurs de déformation
+
+Dans un premier temps, nous avons réalisé un **code Arduino** fonctionnel permettant de contrôler un amplificateur transimpédance, un encodeur rotatoire, un écran OLED ainsi qu'un module Bluetooth. Nous l'avons ensuite testé en effectuant nos premiers branchements.
+Ensuite, nous avons réalisé le design de notre **shield** à l'aide du logiciel *KICAD*, nous l'avons fabriqué, puis nous avons assemblé nos composants dessus. 
+A la suite de cela, nous avons utilisé le logiciel *MIT App Inventor* afin de développer une **application téléphone APK**, capable de communiquer et recevoir des données à distance à l'aide du module Bluetooth (notamment de récupérer la résistance ressentie par le capteur et de l'afficher sur un graphique). 
+Nous avons également designé puis réalisé, un **banc de mesure** en impression 3D, qui, à l'aide d'un servomoteur nous permet de caractériser la réponse en déformation de nos futurs capteurs. 
+Finalement, nous sommes passés à la phase de tests et avons créé nos capteurs, en les "coloriant" avec divers types de crayons à papier (HB,B,...). Nous avons ensuite caractérisé ces derniers en récupérant leur résistance en fonction de leur déformation, et avons ainsi pu établir une **datasheet**.
+
+## 2. Arduino
+
+### 2.1. Librairies utilisées
+
+- Pour développer notre code, nous avons utilisé plusieurs librairies: 
+- ["Adafruit_GFX_Library"](Arduino_Shield/prog_arduino/Adafruit-GFX-Library) et ["Adafruit_SSD1306"](Arduino_Shield/prog_arduino/Adafruit_SSD1306) nous permettant le contrôle de nos modules.
 
 
-![TEST](Application/Acquisition.png)
+
+Le code développé sous Arduino IDE permet la communication du module bluetooth, de l'OLED ou encore de l'encodeur rotatoire avec le téléphone portable (réception et envoi de données sous forme de bits) et permet la mesure de résistance du graphite en fonction de la courbure du capteur de déformations. 
