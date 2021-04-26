@@ -39,4 +39,4 @@ Nous avons également designé puis réalisé, un banc de mesure en impression 3
 Finalement, nous sommes passés à la phase de tests et avons créé nos capteurs, en les "coloriant" avec divers types de crayons à papier (HB,B,...). Nous avons ensuite caractérisé ces derniers en récupérant leur résistance en fonction de leur déformation.
 
 
-![TEST] (/Application/Acquisition.png)
+![TEST] (https://raw.githubusercontent.com/MOSH-Insa-Toulouse/THEO_MARLENE_VIRGILE_Projet_Capteur/main/Application/Acquisition.png)
