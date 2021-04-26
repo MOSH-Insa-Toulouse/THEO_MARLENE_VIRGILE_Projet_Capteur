@@ -51,7 +51,7 @@ Finalement, nous sommes passés à la phase de tests et avons créé nos capteur
 ### 2.1. Librairies utilisées
 
 - Pour développer notre code, nous avons utilisé plusieurs librairies: 
-- ["Adafruit_GFX_Library"](/Arduino_Shield/prog_arduino/Adafruit-GFX-Library) et ["Adafruit_SSD1306"](/Arduino_Shield/prog_arduino/Adafruit_SSD1306) nous permettant le contrôle de nos modules.
+- ["Adafruit_GFX_Library"](Arduino_Shield/prog_arduino) et ["Adafruit_SSD1306"](Arduino_Shield/prog_arduino/Adafruit_SSD1306) nous permettant le contrôle de nos modules.
 
 
 
