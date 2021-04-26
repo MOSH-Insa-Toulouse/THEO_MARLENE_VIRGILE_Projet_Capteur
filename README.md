@@ -16,13 +16,13 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
   * [2.1. Librairies utilisées](#DeuxiemeSection1)
   * [2.2. Code Arduino](#DeuxiemeSection2)
 * [3. KICAD](#TroisiemeSection)  
-  * [Symboles et empreintes](#TroisiemeSection1)
-  * [Schématique](#TroisiemeSection2)
-  * [Placement des composants](#TroisiemeSection3)
-  * [Visualisation 3D](#TroisiemeSection4)
+  * [3.1 Symboles et empreintes](#TroisiemeSection1)
+  * [3.2 Schématique](#TroisiemeSection2)
+  * [3.3 Placement des composants](#TroisiemeSection3)
+  * [3.4 Visualisation 3D](#TroisiemeSection4)
 * [4. Fabrication du shield](#QuatriemeSection)
-  * [Réalisation du PCB](#QuatriemeSection1)
-  * [Perçage et soudure](#QuatriemeSection2)
+  * [4.1 Réalisation du PCB](#QuatriemeSection1)
+  * [4.2 Perçage et soudure](#QuatriemeSection2)
 * [5. Application Android](#CinquiemeSection) 
 * [6. Tests](#SixiemeSection)
   * [6.1. Résultats obtenus](#SixiemeSection1)
@@ -58,3 +58,5 @@ Finalement, nous sommes passés à la phase de tests et avons créé nos capteur
 [Le code]() développé sous Arduino IDE permet la communication du module Bluetooth, de l'OLED ou encore de l'encodeur rotatoire avec le téléphone portable (réception et envoi de données sous forme de bits).
 Il permet de récupérer tout d'abord une valeur de tension, puis la valeur de résistance correspondante en fonction de la courbure du capteur.  
 Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menus via l'encodeur rotatoire. 
+
+## 3. KICAD
