@@ -26,7 +26,8 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
 * [5. Application Android](#CinquiemeSection) 
 * [6. Tests](#SixiemeSection)
   * [6.1. Résultats obtenus](#SixiemeSection1)
-  * [6.2. Analyse des résultats et discussion](#SixiemeSection2)
+  * [6.2. Résultats obtenus](#SixiemeSection2)
+  * [6.3. Analyse des résultats et discussion](#SixiemeSection3)
 * [Datasheet](#SeptiemeSection)
 
 ## Description du projet 
