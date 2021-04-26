@@ -30,10 +30,13 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
   * [6.3. Analyse des résultats et discussion](#SixiemeSection3)
 * [7. Datasheet](#SeptiemeSection)
 
-## Description du projet 
+## 1. Description du projet et détail des livrables
 
 Dans un premier temps, nous avons réalisé un code Arduino fonctionnel permettant de contrôler un amplificateur transimpédance, un encodeur rotatoire, un écran OLED ainsi qu'un module Bluetooth. Nous l'avons ensuite testé en effectuant nos premiers branchements.
 Ensuite, nous avons réalisé le design de notre shield à l'aide du logiciel *KICAD*, nous l'avons fabriqué, puis nous avons assemblé nos composants dessus. 
 A la suite de cela, nous avons utilisé le logiciel *MIT App Inventor* afin de développer une application téléphone APK, capable de communiquer et recevoir des données à distance à l'aide du module Bluetooth (notamment de récupérer la résistance ressentie par le capteur et de l'afficher sur un graphique). 
 Nous avons également designé puis réalisé, un banc de mesure en impression 3D, qui, à l'aide d'un servomoteur nous permet de caractériser la réponse en déformation de nos futurs capteurs. 
 Finalement, nous sommes passés à la phase de tests et avons créé nos capteurs, en les "coloriant" avec divers types de crayons à papier (HB,B,...). Nous avons ensuite caractérisé ces derniers en récupérant leur résistance en fonction de leur déformation.
+
+
+![TEST] (Acquisition.png)
