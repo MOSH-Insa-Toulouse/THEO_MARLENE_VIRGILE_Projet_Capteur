@@ -11,7 +11,7 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
 
 ## Sommaire 
 
-* [1. Description du projet](#PremiereSection) 
+* [1. Description du projet et détail des livrables](#PremiereSection) 
 * [2. Arduino](#DeuxiemeSection)
   * [2.1. Bibliothèques utilisées](#DeuxiemeSection1)
   * [2.2. Code Arduino](#DeuxiemeSection2)
@@ -28,7 +28,7 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
   * [6.1. Résultats obtenus](#SixiemeSection1)
   * [6.2. Résultats obtenus](#SixiemeSection2)
   * [6.3. Analyse des résultats et discussion](#SixiemeSection3)
-* [Datasheet](#SeptiemeSection)
+* [7. Datasheet](#SeptiemeSection)
 
 ## Description du projet 
 
