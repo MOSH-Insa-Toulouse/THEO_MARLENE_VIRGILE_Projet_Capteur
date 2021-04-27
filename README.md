@@ -66,7 +66,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 - Module Bluetooth 
 
 ![BT](/Images_Shield/Bluetooth2.png) 
-![BT](/Images_Shield/Bluetooth2.png)
+![BT](/Images_Shield/Bluetooth.png)
 
 - Encodeur rotatoire 
 
