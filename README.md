@@ -65,34 +65,34 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
-<img src="/Images_Shield/Bluetooth2.png" width="400" height="150"> <img src="/Images_Shield/Bluetooth.png" width="275" height="150">
+<img src="/Images/Bluetooth2.png" width="400" height="150"> <img src="/Images/Bluetooth.png" width="275" height="150">
 
 
 - Encodeur rotatoire 
 
-<img src="/Images_Shield/Encodeur2.png" width="400" height="150"> <img src="/Images_Shield/Encodeur.png" width="275" height="150">
+<img src="/Images/Encodeur2.png" width="400" height="150"> <img src="/Images/Encodeur.png" width="275" height="150">
 
 
 - Ecran OLED 
 
-<img src="/Images_Shield/OLED2.png" width="350" height="150"> <img src="/Images_Shield/OLED.png" width="275" height="150">
+<img src="/Images/OLED2.png" width="350" height="150"> <img src="/Images/OLED.png" width="275" height="150">
 
 - Amplificateur LTC 1050
 
-<img src="/Images_Shield/LTC10502.png" width="300" height="150"> <img src="/Images_Shield/LTC1050.png" width="400" height="150">
+<img src="/Images/LTC10502.png" width="300" height="150"> <img src="/Images/LTC1050.png" width="400" height="150">
 
 
 ### 3.2. Schématique de l'ensemble 
 
-![Glob](/Images_Shield/Global.png)
+![Glob](/Images/Global.png)
 
 Une fois les empreintes créées, nous avons pu réaliser le Eeschema de notre shield. En haut à droite sont représentées les broches de la carte Arduino. Au centre du PCB, on trouve l'amplificateur transimpédance (permettant de traiter les données envoyées par le capteur, c'est-à-dire la variation de résistance), le module Bluetooth et l'écran OLED.
 
 ### 3.3. Placement des composants
-![Rout](/Images_Shield/Routage.png)
+![Rout](/Images/Routage.png)
 
 ### 3.4. Visualisation 3D
-<img src="/Images_Shield/3D.png" width="400" height="300"> <img src="/Images_Shield/3D%20dos.png" width="400" height="300">
+<img src="/Images/3D.png" width="400" height="300"> <img src="/Images/3D%20dos.png" width="400" height="300">
 
 
 ## 4. Fabrication du shield
@@ -123,6 +123,9 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 
 ## 6. Tests
 ### 6.1. Banc de test
+
+<img src="/Images/BancTest.png" width="400" height="300"> <img src="/Images/BancTest2.png" width="400" height="300">
+
 ### 6.2. Résultats obtenus
 ### 6.3. Analyse des résultats et discussion
 ## 7. Datasheet
