@@ -93,7 +93,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ### 3.4. Visualisation 3D
 ![3D](/Images_Shield/3D.png)
-![3D](/Images_Shield/3Ddos.png)
+![3D](/Images_Shield/3D%20dos.png)
 
 ## 4. Fabrication du shield
 ### 4.1. Réalisation du PCB
