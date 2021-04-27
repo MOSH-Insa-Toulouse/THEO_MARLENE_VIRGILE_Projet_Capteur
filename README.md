@@ -25,7 +25,7 @@ Dans ce dossier sont présentées les différentes étapes que nous avons suivie
   * [4.2 Perçage et soudure](#QuatriemeSection2)
 * [5. Application Android](#CinquiemeSection) 
 * [6. Tests](#SixiemeSection)
-  * [6.1. Résultats obtenus](#SixiemeSection1)
+  * [6.1. Banc de test](#SixiemeSection1)
   * [6.2. Résultats obtenus](#SixiemeSection2)
   * [6.3. Analyse des résultats et discussion](#SixiemeSection3)
 * [7. Datasheet](#SeptiemeSection)
@@ -50,7 +50,7 @@ Finalement, nous sommes passés à la phase de tests et avons créé nos capteur
 
 ### 2.1. Librairies utilisées
 
-- Pour développer notre code, nous avons utilisé plusieurs librairies :["Adafruit_GFX_Library"](Arduino_Shield/prog_arduino) et ["Adafruit_SSD1306"](Arduino_Shield/prog_arduino) nous permettant le contrôle de nos modules.
+Pour développer notre code, nous avons utilisé plusieurs librairies :["Adafruit_GFX_Library"](/Librairies/Adafruit_GFX_Library) et ["Adafruit_SSD1306"](/Librairies/Adafruit_SSD1306) nous permettant le contrôle de nos modules, ainsi que la librairie [Adafruit_BusIO](/Librairies/Adafruit_BusIO) permmettant de gérer la connexions en I2C et SPI.
 
 
 ### 2.2. Code Arduino
@@ -62,7 +62,42 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ## 3. KICAD
 
+# 3.1 Symboles et empreintes
+- Module Bluetooth 
 
+![BT](/Images_Shield/Bluetooth2.png) 
+![BT](/Images_Shield/Bluetooth2.png)
+
+- Encodeur rotatoire 
+
+![Enc](/Images_Shield/Encodeur2.png)
+![Enc](/Images_Shield/Encodeur.png)
+
+- OLED 
+
+![OLED](/Images_Shield/OLED2.png)
+![OLED](/Images_Shield/OLED.png)
+
+- Amplificateur LTC 1050
+
+![Amp](/Images_Shield/LTC10502.png)
+![Amp](/Images_Shield/LTC1050.png)
+
+
+# 3.2 Schématique de l'ensemble 
+
+![Glob](/Images_Shield/Global.png)
+
+# 3.3 Placement des composants
+![Rout](/Images_Shield/Routage.png)
+
+# 3.4 Visualisation 3D
+![3D](/Images_Shield/3D.png)
+![3D](/Images_Shield/3D dos.png)
+
+## 4. Fabrication du shield
+# 4.1 Réalisation du PCB
+# 4.2 Perçage et soudure
 
 ## 5. Application Android
 
@@ -72,3 +107,9 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 - Relever la tension envoyée par Bluetooth, afficher la valeur de résistance correspondante, de manière numérique et graphique et la traduire dans un fichier texte. Cette fonction est commandée par un système Start/Stop.
 - Effectuer une acquisition selon un temps donné. Il faut au préalable définir le temps d'acquisition via l'arduino. Ce temps vient remplacer le Start/Stop, sinon la fonction est la même que précédemment.
 - Modifier la valeur de résistance de R2. Pour cela, il faut rentrer la valeur via l'arduino.
+
+## 6. Tests
+# 6.1. Banc de test
+# 6.2. Résultats obtenus
+# 6.3. Analyse des résultats et discussion
+# 7. Datasheet
