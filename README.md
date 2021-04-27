@@ -86,7 +86,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ![Glob](/Images/Global.png)
 
-Une fois les empreintes créées, nous avons pu réaliser le Eeschema de notre shield. En haut à droite sont représentées les broches de la carte Arduino. Au centre du PCB, on trouve l'amplificateur transimpédance (permettant de traiter les données envoyées par le capteur, c'est-à-dire la variation de résistance), le module Bluetooth et l'écran OLED.
+Une fois les empreintes créées, nous avons pu réaliser le Eeschema de notre shield. En haut à droite sont représentées les broches de la carte Arduino. Au centre est représenté l'amplificateur transimpédance, et en bas l'écran OLED, le module Bluetooth et l'encodeur rotatoire.
 
 ### 3.3. Placement des composants
 ![Rout](/Images/Routage.png)
