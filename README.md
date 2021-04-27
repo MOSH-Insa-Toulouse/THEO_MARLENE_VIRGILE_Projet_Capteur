@@ -69,19 +69,15 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 
 - Encodeur rotatoire 
+<img src="/Images_Shield/Encodeur2.png" width="400" height="150"> <img src="/Images_Shield/Encodeur.png" width="400" height="150">
 
-![Enc](/Images_Shield/Encodeur2.png)
-![Enc](/Images_Shield/Encodeur.png)
 
 - OLED 
 
-![OLED](/Images_Shield/OLED2.png)
-![OLED](/Images_Shield/OLED.png)
+<img src="/Images_Shield/OLED2.png" width="400" height="150"> <img src="/Images_Shield/OLED.png" width="300" height="150">
 
 - Amplificateur LTC 1050
-
-![Amp](/Images_Shield/LTC10502.png)
-![Amp](/Images_Shield/LTC1050.png)
+<img src="/Images_Shield/LTC10502.png" width="400" height="150"> <img src="/Images_Shield/LTC1050.png" width="400" height="150">
 
 
 ### 3.2. Schématique de l'ensemble 
