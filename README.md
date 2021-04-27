@@ -134,7 +134,7 @@ Pour réaliser nos tests, nous avons utilisé 2 bancs différents :
 
 
 ### 6.2. Résultats obtenus
-<img src="/Images/Graphs.png" width="600" height="900"> 
+<img src="/Images/Graphs.png" width="700" height="900"> 
 
 
 ### 6.3. Analyse des résultats et discussion
