@@ -90,7 +90,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ![Rout](/Images_Shield/Routage.png)
 
 ### 3.4. Visualisation 3D
-<img src="/Images_Shield/3D.png" width="400" height="150"> <img src="/Images_Shield/3D%20dos.png" width="400" height="150">
+<img src="/Images_Shield/3D.png" width="400" height="300"> <img src="/Images_Shield/3D%20dos.png" width="400" height="300">
 
 
 ## 4. Fabrication du shield
