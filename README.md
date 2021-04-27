@@ -65,7 +65,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
-<img src="/Images_Shield/Bluetooth2.png" width="100" height="100">
+<img src="/Images_Shield/Bluetooth2.png" width="400" height="100">
 ![BT](/Images_Shield/Bluetooth.png)
 
 
