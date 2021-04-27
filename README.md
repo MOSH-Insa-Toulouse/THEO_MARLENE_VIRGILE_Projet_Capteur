@@ -58,5 +58,17 @@ Finalement, nous sommes passés à la phase de tests et avons créé nos capteur
 [Le code](/Programme%20Arduino) développé sous Arduino IDE permet la communication du module Bluetooth, de l'OLED ou encore de l'encodeur rotatoire avec le téléphone portable (réception et envoi de données sous forme de bits).
 Il permet de récupérer tout d'abord une valeur de tension, puis la valeur de résistance correspondante en fonction de la courbure du capteur.  
 Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menus via l'encodeur rotatoire. 
+ 
 
 ## 3. KICAD
+
+
+
+## 5. Application Android
+
+[L'application](/Application) développée sous MIT App Inventor, un site internet permettant de designer des applications en ligne, permet d'établir la liaison entre les données relevées par l'arduino et le traitement de celles-ci, en direct puis via la création d'un fichier de données. 
+
+Concrètement, l'application a été designée pour corréler avec le code arduino (cf 2.). Elle permet ainsi de se connecter à un module bluetooth chargé d'envoyer la tension relevée, qui sera traduite en résistance pour le capteur. Lorsque l'on est connecté, l'application est capable d'effectuer 3 tâches principales : 
+- Relever la tension envoyée par Bluetooth, afficher la valeur de résistance correspondante, de manière numérique et graphique et la traduire dans un fichier texte. Cette fonction est commandée par un système Start/Stop.
+- Effectuer une acquisition selon un temps donné. Il faut au préalable définir le temps d'acquisition via l'arduino. Ce temps vient remplacer le Start/Stop, sinon la fonction est la même que précédemment.
+- Modifier la valeur de résistance de R2. Pour cela, il faut rentrer la valeur via l'arduino.
