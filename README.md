@@ -125,11 +125,12 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 ### 6.1. Banc de test
 
 Pour réaliser nos tests, nous avons utilisé 2 bancs différents : 
-- Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. Il permet de mesurer la déformation du capteur en fonction du temps grâce à une rotation induite par un servomoteur. 
+- Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. Il permet de mesurer la déformation du capteur en fonction du temps grâce à une rotation induite par un servomoteur.  
+
 <img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">
 
 - Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
-<img src="/Images/BancTest3.jpg" width="400" height="300"> 
+<img src="/Images/BancTest3.png" width="400" height="300"> 
 
 
 ### 6.2. Résultats obtenus
