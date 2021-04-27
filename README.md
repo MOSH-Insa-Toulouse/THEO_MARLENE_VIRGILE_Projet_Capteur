@@ -62,7 +62,7 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ## 3. KICAD
 
-# 3.1 Symboles et empreintes
+### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
 ![BT](/Images_Shield/Bluetooth2.png) 
@@ -84,20 +84,20 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ![Amp](/Images_Shield/LTC1050.png)
 
 
-# 3.2 Schématique de l'ensemble 
+### 3.2. Schématique de l'ensemble 
 
 ![Glob](/Images_Shield/Global.png)
 
-# 3.3 Placement des composants
+### 3.3. Placement des composants
 ![Rout](/Images_Shield/Routage.png)
 
-# 3.4 Visualisation 3D
+### 3.4. Visualisation 3D
 ![3D](/Images_Shield/3D.png)
 ![3D](/Images_Shield/3D dos.png)
 
 ## 4. Fabrication du shield
-# 4.1 Réalisation du PCB
-# 4.2 Perçage et soudure
+### 4.1. Réalisation du PCB
+### 4.2. Perçage et soudure
 
 ## 5. Application Android
 
@@ -109,7 +109,7 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 - Modifier la valeur de résistance de R2. Pour cela, il faut rentrer la valeur via l'arduino.
 
 ## 6. Tests
-# 6.1. Banc de test
-# 6.2. Résultats obtenus
-# 6.3. Analyse des résultats et discussion
-# 7. Datasheet
+### 6.1. Banc de test
+### 6.2. Résultats obtenus
+### 6.3. Analyse des résultats et discussion
+## 7. Datasheet
