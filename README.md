@@ -65,17 +65,17 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
-<img src="/Images_Shield/Bluetooth2.png" width="400" height="150"> <img src="/Images_Shield/Bluetooth.png" width="300" height="150">
+<img src="/Images_Shield/Bluetooth2.png" width="400" height="150"> <img src="/Images_Shield/Bluetooth.png" width="275" height="150">
 
 
 - Encodeur rotatoire 
 
-<img src="/Images_Shield/Encodeur2.png" width="400" height="150"> <img src="/Images_Shield/Encodeur.png" width="300" height="150">
+<img src="/Images_Shield/Encodeur2.png" width="400" height="150"> <img src="/Images_Shield/Encodeur.png" width="275" height="150">
 
 
-- OLED 
+- Ecran OLED 
 
-<img src="/Images_Shield/OLED2.png" width="350" height="150"> <img src="/Images_Shield/OLED.png" width="300" height="150">
+<img src="/Images_Shield/OLED2.png" width="350" height="150"> <img src="/Images_Shield/OLED.png" width="275" height="150">
 
 - Amplificateur LTC 1050
 
@@ -86,6 +86,8 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ![Glob](/Images_Shield/Global.png)
 
+Une fois les empreintes créées, nous avons pu réaliser le Eeschema de notre shield. En haut à droite sont représentées les broches de la carte Arduino. Au centre du PCB, on trouve l'amplificateur transimpédance (permettant de traiter les données envoyées par le capteur, c'est-à-dire la variation de résistance), le module Bluetooth et l'écran OLED.
+
 ### 3.3. Placement des composants
 ![Rout](/Images_Shield/Routage.png)
 
@@ -95,7 +97,20 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 
 ## 4. Fabrication du shield
 ### 4.1. Réalisation du PCB
+
+ Nous avons ensuite pu fabriquer le PCB sur une plaquette d'epoxy recouverte d'une fine couche de cuivre (environ 60µm). 
+ Tout d'abord, nous avons imprimé notre modélisation du PCB sur du papier calque, puis, une insolation aux UV pendant 2 minutes a permis de transposer cette "silhouette" sur notre couche d'epoxy, permettant ainsi de déposer une résine protectrice, qui grâce à un révélateur, a pu être retirée aux endroits désirés.
+ Ensuite, la plaquette a été déposée dans un bain de perchlorure de fer afin d'être gravée (environ 8 minutes). A la suite de cela, le cuivre non protégé par la résine a alors été retiré, permettant d'obtenir le PCB modélisé en amont. 
+ Pour finir, de l'acétone a été appliquée sur la plaquette pour éliminer les dernières traces de résine.
+
+
 ### 4.2. Perçage et soudure
+
+Une fois le PCB réalisé, nous sommes passés au perçage de trous sur notre plaquette à l'aide d'une perçeuse électrique afin d'insérer nos composants : 
+- 0.8mm de diamètre pour l'AOP, les résistances et les capacités
+- 1mm de diamètre pour les connecteurs de l'Arduino et des headers des différents modules (pinces du capteur, bluetooth, encodeur rotatoire, écran OLED)
+
+Enfin, nous avons soudé chaque composant à l'aide d'un fer à souder.
 
 ## 5. Application Android
 
