@@ -124,7 +124,7 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 ## 6. Tests
 ### 6.1. Banc de test
 
-<img src="/Images/BancTest.png" width="400" height="300"> <img src="/Images/BancTest2.png" width="400" height="300">
+<img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">
 
 ### 6.2. Résultats obtenus
 ### 6.3. Analyse des résultats et discussion
