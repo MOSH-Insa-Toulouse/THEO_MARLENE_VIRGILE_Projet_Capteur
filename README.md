@@ -65,7 +65,8 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
-![BT](/Images_Shield/Bluetooth2.png) ![BT](/Images_Shield/Bluetooth.png)
+![BT](/Images_Shield/Bluetooth2.png width=100 height=100) 
+![BT](/Images_Shield/Bluetooth.png)
 
 - Encodeur rotatoire 
 
