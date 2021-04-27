@@ -98,9 +98,9 @@ Une fois les empreintes créées, nous avons pu réaliser le Eeschema de notre s
 ## 4. Fabrication du shield
 ### 4.1. Réalisation du PCB
 
- Nous avons ensuite pu fabriquer le PCB sur une plaquette d'epoxy recouverte d'une fine couche de cuivre (environ 60µm). 
- Tout d'abord, nous avons imprimé notre modélisation du PCB sur du papier calque, puis, une insolation aux UV pendant 2 minutes a permis de transposer cette "silhouette" sur notre couche d'epoxy, permettant ainsi de déposer une résine protectrice, qui grâce à un révélateur, a pu être retirée aux endroits désirés.
- Ensuite, la plaquette a été déposée dans un bain de perchlorure de fer afin d'être gravée (environ 8 minutes). A la suite de cela, le cuivre non protégé par la résine a alors été retiré, permettant d'obtenir le PCB modélisé en amont. 
+ Nous avons ensuite pu fabriquer le PCB sur une plaquette d'epoxy recouverte d'une fine couche de cuivre (environ 60µm).  
+ Tout d'abord, nous avons imprimé notre modélisation du PCB sur du papier calque, puis, une insolation aux UV pendant 2 minutes a permis de transposer cette "silhouette" sur notre couche d'epoxy, permettant ainsi de déposer une résine protectrice, qui grâce à un révélateur, a pu être retirée aux endroits désirés.  
+ Ensuite, la plaquette a été déposée dans un bain de perchlorure de fer afin d'être gravée (environ 8 minutes). A la suite de cela, le cuivre non protégé par la résine a alors été retiré, permettant d'obtenir le PCB modélisé en amont.  
  Pour finir, de l'acétone a été appliquée sur la plaquette pour éliminer les dernières traces de résine.
 
 
