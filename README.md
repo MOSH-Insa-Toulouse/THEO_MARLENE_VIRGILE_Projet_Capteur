@@ -65,21 +65,21 @@ Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menu
 ### 3.1. Symboles et empreintes
 - Module Bluetooth 
 
-<img src="/Images/Bluetooth2.png" width="400" height="150"> <img src="/Images/Bluetooth.png" width="275" height="150">
+<img src="/Images/Bluetooth2.png" width="400" height="150"> <img src="/Images/Bluetooth.png" width="250" height="150">
 
 
 - Encodeur rotatoire 
 
-<img src="/Images/Encodeur2.png" width="400" height="150"> <img src="/Images/Encodeur.png" width="275" height="150">
+<img src="/Images/Encodeur2.png" width="400" height="150"> <img src="/Images/Encodeur.png" width="250" height="150">
 
 
 - Ecran OLED 
 
-<img src="/Images/OLED2.png" width="350" height="150"> <img src="/Images/OLED.png" width="275" height="150">
+<img src="/Images/OLED2.png" width="350" height="150"> <img src="/Images/OLED.png" width="250" height="150">
 
 - Amplificateur LTC 1050
 
-<img src="/Images/LTC10502.png" width="300" height="150"> <img src="/Images/LTC1050.png" width="400" height="150">
+<img src="/Images/LTC10502.png" width="275" height="150"> <img src="/Images/LTC1050.png" width="375" height="150">
 
 
 ### 3.2. Schématique de l'ensemble 
