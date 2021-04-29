@@ -126,7 +126,7 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 
 Pour réaliser nos tests, nous avons utilisé 2 bancs différents ; l'un déjà existant et pensé par nos prédécesseurs et un autre par nos soins lors de la réalisation du projet.
 
-Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. 
+- Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. 
 
 
 <img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">  
@@ -139,8 +139,7 @@ Nous avons donc réfléchi à un design permettant une installation fixe du capt
 
 **Le socle**
 
-![S](/Images/Socle.png)  
-
+<img src="/Images/Socle.png" width="400" height="300"> 
 Le socle est la pièce massive qui permet de fixer le servomoteur et le capteur afin de ne pas avoir à retoucher le système entre les mesures.  
 
 •	 La languette sur le côté gauche représente la zone permettant de fixer le capteur à l’aide des pinces conductrices.   
@@ -150,7 +149,7 @@ Le socle est la pièce massive qui permet de fixer le servomoteur et le capteur 
 
 **La pièce « escargot »**
 
-![S](/Images/Escargot%20Dimensions.png)  
+<img src="/Images/Escargot%20Dimensions.png " width="400" height="300"> 
 
 Cette pièce est un embout pour le servomoteur : l’extrémité libre du capteur repose dessus lorsqu’il est fixé sur le banc. 
 Le rayon de l’embout augmente d’un millimètre tous les dix degrés de rotation ce qui permet d’avoir une variation du rayon entre 5,5 mm et 21,5 mm sur l’ensemble de la rotation du servomoteur.   
@@ -169,13 +168,14 @@ Utiliser un servomoteur nous permet de gérer facilement la rotation de la pièc
 
 Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur. 
 
+  
 
 - Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
 <img src="/Images/BancTest3.png" width="400" height="300"> 
 
 
 ### 6.2. Résultats obtenus
-<img src="/Images/Graphs.png" width="700" height="900"> 
+<img src="/Images/Graphs.png" width="900" height="600"> 
 
 **Avec le banc de test utilisant le servomoteur**
 
