@@ -124,10 +124,51 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 ## 6. Tests
 ### 6.1. Banc de test
 
-Pour réaliser nos tests, nous avons utilisé 2 bancs différents : 
-- Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. Il permet de mesurer la déformation du capteur en fonction du temps grâce à une rotation induite par un servomoteur.  
+Pour réaliser nos tests, nous avons utilisé 2 bancs différents ; l'un déjà existant et pensé par nos prédécesseurs et un autre par nos soins lors de la réalisation du projet.
 
-<img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">
+Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. 
+
+
+<img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">  
+
+Il permet de mesurer la déformation du capteur en fonction du temps grâce à une rotation induite par un servomoteur et répond à deux problématiques :
+ - La première étant la limite principale du banc de test déjà existant : il était destructif. En effet à chaque utilisation de celui-ci le capteur devenait inutilisable par la suite. Il nous était donc impossible de revenir aux valeurs initiales de résistances après passage du capteur sur le banc de test. 
+- La seconde étant la volonté d’observer l’évolution en dynamique de la réponse du capteur afin de déterminer une potentielle fatigue de celui-ci lors d’un test cyclique. 
+
+Nous avons donc réfléchi à un design permettant une installation fixe du capteur qui ne nécessitait plus d’action extérieure au cours de la mesure, et qui pouvait faire périodiquement une application de contrainte identique sur notre capteur. Pour cela, notre banc a été conçu en 3 parties : le socle, la pièce « escargot » et le servomoteur, pilotés via un code Arduino supplémentaire. 
+
+**Le socle**
+
+![S](/Images/Socle.png)  
+
+Le socle est la pièce massive qui permet de fixer le servomoteur et le capteur afin de ne pas avoir à retoucher le système entre les mesures.  
+
+•	 La languette sur le côté gauche représente la zone permettant de fixer le capteur à l’aide des pinces conductrices.   
+•	 Le demi cercle vide au milieu de la pièce correspond à la zone permettant la rotation de la pièce « escargot ».  
+•	 L’encoche qui traverse la pièce dans la largeur permet de glisser le servomoteur et de le maintenir dans la position souhaitée.  
+
+
+**La pièce « escargot »**
+
+![S](/Images/Escargot%20Dimensions.png)  
+
+Cette pièce est un embout pour le servomoteur : l’extrémité libre du capteur repose dessus lorsqu’il est fixé sur le banc. 
+Le rayon de l’embout augmente d’un millimètre tous les dix degrés de rotation ce qui permet d’avoir une variation du rayon entre 5,5 mm et 21,5 mm sur l’ensemble de la rotation du servomoteur.   
+
+Nous souhaitions pouvoir remonter à la déformation en connaissant la longueur du rayon or après plusieurs tentatives, nous nous sommes rendus compte qu’il était difficile de remonter à cette valeur en compression avec la composition géométrique de ce banc de test.   
+
+
+**Le servomoteur**
+
+Nous avons choisi d’utiliser le servomoteur SG90 car parmi ceux à notre disposition, c’est celui dont les dimensions étaient les plus adaptées pour notre capteur.   
+En effet sa petite taille nous permet d’y fixer un embout de plus petite taille qui nous assure de rester dans le domaine de la déformation élastique du papier puisque nous pouvons  appliquer des déformations plus faibles et plus précises.   
+Utiliser un servomoteur nous permet de gérer facilement la rotation de la pièce «escargot», et in extenso de fixer facilement la plage de déformation du capteur à l’aide du code Arduino. 
+
+
+**Le code Arduino**
+
+Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur. 
+
 
 - Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
 <img src="/Images/BancTest3.png" width="400" height="300"> 
@@ -136,6 +177,25 @@ Pour réaliser nos tests, nous avons utilisé 2 bancs différents :
 ### 6.2. Résultats obtenus
 <img src="/Images/Graphs.png" width="700" height="900"> 
 
+**Avec le banc de test utilisant le servomoteur**
+
+<img src="/Images/Graph%20temps.png" width="700" height="900">   
+
+Nous pouvons voir que la jauge réagit de façon périodique à la contrainte du banc en dynamique. 
+En effet, lors de l’augmentation du rayon de la pièce en escargot, nous observons une augmentation quasi-linéaire de la résistance (cf courbe ci-dessus zone 1). 
+Lors de la diminution de celui-ci, nous observons une diminution quasi-linéaire de la résistance de la jauge de contrainte (cf courbe ci-dessus zone 2).
+Nous observons également une plage de données instable entre ces deux phases. Cette réponse du capteur est due à l’imperfection de notre banc (cf courbe ci-dessus zone 3). En effet, lorsque l’on arrive au bout de la course du servomoteur, le capteur ne suit pas complètement l’évolution du rayon de courbure, et entre en contact avec une autre surface de la pièce en « escargot » que celle souhaitée. 
+
+
 
 ### 6.3. Analyse des résultats et discussion
+
+Nous observons à l’aide de notre banc de test utlisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
+
+Concernant les imprécisions de la zone de mesure se situant en bout de course du servomoteur, plusieurs améliorations sont envisageables : 
+ - Concevoir la pièce « escargot » en miroir, de façon à toujours avoir un rayon plus petit sous la jauge au lieu du contraire actuellement
+ - Repenser la pièce afin de pouvoir fixer directement l’extrémité du capteur à la pièce « escargot »
+
+Nous aurions pu également réfléchir en amont au calcul de contrainte qui aurait été plus pertinent qu’un simple relevé de résistance.  
+
 ## 7. Datasheet
