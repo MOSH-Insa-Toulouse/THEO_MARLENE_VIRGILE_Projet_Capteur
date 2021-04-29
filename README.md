@@ -166,7 +166,9 @@ Utiliser un servomoteur nous permet de gérer facilement la rotation de la pièc
 
 **Le code Arduino**
 
-Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur. 
+Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur.   
+  
+  
 
   
 
