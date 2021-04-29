@@ -175,11 +175,11 @@ Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotat
 
 
 ### 6.2. Résultats obtenus
-<img src="/Images/Graphs.png" width="900" height="600"> 
+<img src="/Images/Graphs.png" width="700" height="900"> 
 
 **Avec le banc de test utilisant le servomoteur**
 
-<img src="/Images/Graph%20temps.png" width="700" height="900">   
+<img src="/Images/Graph%20temps.png" width="800" height="400">   
 
 Nous pouvons voir que la jauge réagit de façon périodique à la contrainte du banc en dynamique. 
 En effet, lors de l’augmentation du rayon de la pièce en escargot, nous observons une augmentation quasi-linéaire de la résistance (cf courbe ci-dessus zone 1). 
