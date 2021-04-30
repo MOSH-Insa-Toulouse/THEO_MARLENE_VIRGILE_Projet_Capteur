@@ -187,10 +187,9 @@ Lors de la diminution de celui-ci, nous observons une diminution quasi-linéaire
 Nous observons également une plage de données instable entre ces deux phases. Cette réponse du capteur est due à l’imperfection de notre banc (cf courbe ci-dessus zone 3). En effet, lorsque l’on arrive au bout de la course du servomoteur, le capteur ne suit pas complètement l’évolution du rayon de courbure, et entre en contact avec une autre surface de la pièce en « escargot » que celle souhaitée. 
 
 
-
 ### 6.3. Analyse des résultats et discussion
 
-Nous observons à l’aide de notre banc de test utlisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
+Nous observons à l’aide de notre banc de test utilisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
 
 Concernant les imprécisions de la zone de mesure se situant en bout de course du servomoteur, plusieurs améliorations sont envisageables : 
  - Concevoir la pièce « escargot » en miroir, de façon à toujours avoir un rayon plus petit sous la jauge au lieu du contraire actuellement
