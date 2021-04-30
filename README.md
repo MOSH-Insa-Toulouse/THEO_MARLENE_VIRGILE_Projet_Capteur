@@ -126,7 +126,7 @@ Concrètement, l'application a été designée pour corréler avec le code ardui
 
 Pour réaliser nos tests, nous avons utilisé 2 bancs différents ; l'un déjà existant et pensé par nos prédécesseurs et un autre par nos soins lors de la réalisation du projet.
 
-- Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. 
+#### Le [banc de test](/Banc%20de%20test) que nous avons imaginé a été modélisé via un logiciel de CAO et ensuite imprimé grâce à une imprimante 3D. 
 
 
 <img src="/Images/BancTest.jpg" width="400" height="300"> <img src="/Images/BancTest2.jpg" width="400" height="300">  
@@ -170,7 +170,8 @@ Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotat
   
   
                                                                                               
-- Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
+
+#### Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
 <img src="/Images/BancTest3.png" width="400" height="300"> 
 
 
