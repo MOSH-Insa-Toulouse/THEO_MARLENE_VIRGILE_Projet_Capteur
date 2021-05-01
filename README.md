@@ -187,15 +187,45 @@ En effet, lors de l’augmentation du rayon de la pièce en escargot, nous obser
 Lors de la diminution de celui-ci, nous observons une diminution quasi-linéaire de la résistance de la jauge de contrainte (cf courbe ci-dessus zone 2).
 Nous observons également une plage de données instable entre ces deux phases. Cette réponse du capteur est due à l’imperfection de notre banc (cf courbe ci-dessus zone 3). En effet, lorsque l’on arrive au bout de la course du servomoteur, le capteur ne suit pas complètement l’évolution du rayon de courbure, et entre en contact avec une autre surface de la pièce en « escargot » que celle souhaitée. 
 
+**Avec le banc de test déjà réalisé**
+
+Comme nous pouvons l’observer sur les graphiques ci-dessus, la plupart des réponses des jauges aux déformations appliquées à l’aide du banc de test statique suivent une évolution quasi-linéaire. 
+
+La résistance sans contrainte varie du simple au double entre deux jauges produites par le même type de crayon à papier. 
+
+Les variations de résistance sont plus importantes lorsque la dureté du crayon est plus élevée. En effet, pour le HB nous avons pu observer au maximum une variation de 5 à 20 MOhms et pour le 2B de 4 à 5 MOhms. 
+
+Les facteurs de jauge obtenus sont de :
+- 6,48 et 3,22 pour les essais 1 et 2 avec des jauges dessinées avec des crayons 2B
+- 6,08 et 11,36 pour les essais 1 et 2 avec des jauges dessinées avec des crayons B
+- 13,15 et 27,21 pour les essais 1 et 2 avec des jauges dessinées avec des crayons HB
+
+
 
 ### 6.3. Analyse des résultats et discussion
 
-Nous observons à l’aide de notre banc de test utilisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
+- Nous observons à l’aide de notre banc de test utilisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
 
 Concernant les imprécisions de la zone de mesure se situant en bout de course du servomoteur, plusieurs améliorations sont envisageables : 
  - Concevoir la pièce « escargot » en miroir, de façon à toujours avoir un rayon plus petit sous la jauge au lieu du contraire actuellement
  - Repenser la pièce afin de pouvoir fixer directement l’extrémité du capteur à la pièce « escargot »
 
 Nous aurions pu également réfléchir en amont au calcul de contrainte qui aurait été plus pertinent qu’un simple relevé de résistance.  
+  
+Ces différents résultats mettent en valeur les avantages et les limites de ce type de jauges de contrainte.   
+
+
+- Pour ce qui est du banc de test déjà réalisé, nous constatons que les jauges réalisées, ont d'après les essais, des facteurs de jauge très élevés avec l’utilisation de crayons à papier à pointe dure, mais que, si le crayon dépose trop peu de graphite, des problèmes de continuité électrique se posent.  
+
+Une des principales limites est donc la dépose du graphite. En effet, nous remarquons des différences de quasiment un facteur 2 entre les facteurs de jauge des capteurs dessinés en 2B, B et HB. 
+Ces différences peuvent être dûes à :
+ - la non-répétabilité de la mesure et la destruction du capteur en fonction de la manipulation de la jauge et du banc
+ - le dépôt de graphite sur le papier : la pression avec le crayon à papier, le nombre de passages du crayon, la précision du tracé    
+
+Il faudrait réfléchir à un procédé permettant un dépôt uniforme, précis et répétable. Une impression mécanique automatisée serait une option pour rendre les facteurs de jauge plus constants.  
+
+Nous pouvons tout de même conclure que la confection de jauges de contrainte en graphite est réalisable et permet de créer des jauges avec de très bon facteurs de jauge. 
+Néanmoins, le processus de dessin doit être optimisé car il y a beaucoup trop de paramètres qui ne permettent pas de garantir la qualité de la jauge de contrainte. 
+
 
 ## 7. Datasheet
