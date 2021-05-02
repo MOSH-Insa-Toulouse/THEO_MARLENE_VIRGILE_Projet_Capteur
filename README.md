@@ -1,10 +1,10 @@
 # THEO_MARLENE_VIRGILE_Projet_Capteur
 Ce projet s'inscrit dans l'UF **"Du capteur au banc de Test"** en 4ème année Génie Physique, à l'INSA de Toulouse. 
 ***
-Ce dernier a pour but l'élaboration d'un **capteur de déformation** à bas coût à base de graphite, dont le fonctionnement est basé sur le principe de déplacement des électrons entre les nanoparticules par effet tunnel. A
+Ce dernier a pour but l'élaboration d'un **capteur de déformation** à bas coût à base de graphite, dont le fonctionnement est basé sur le principe de déplacement des électrons entre les nanoparticules par effet tunnel. 
 La contrainte mécanique appliquée modifiant la distance entre les particules, la conductivité électrique de la couche de graphite subit elle aussi une modification. La déformation du capteur créé grâce à un dépôt au crayon à papier engendre donc une variation de résistance alors mesurable.
 *** 
-Dans ce dossier sont présentées les différentes étapes que nous avons suivies : du design de notre shield, à notre code Arduino en passant par la réalisation d'une application pour téléphone et d'un banc de mesure réalisé en impression 3D. 
+Dans ce dossier sont présentés les différentes étapes que nous avons suivies : du design de notre shield, à notre code Arduino en passant par la réalisation d'une application pour téléphone et d'un banc de mesure réalisé en impression 3D. 
 
 
 
@@ -50,7 +50,7 @@ Finalement, nous sommes passés à la phase de tests et avons créé nos capteur
 
 ### 2.1. Librairies utilisées
 
-Pour développer notre code, nous avons utilisé plusieurs librairies :["Adafruit_GFX_Library"](/Librairies/Adafruit_GFX_Library) et ["Adafruit_SSD1306"](/Librairies/Adafruit_SSD1306) nous permettant le contrôle de nos modules, ainsi que la librairie [Adafruit_BusIO](/Librairies/Adafruit_BusIO) permmettant de gérer la connexions en I2C et SPI.
+Pour développer notre code, nous avons utilisé plusieurs librairies :["Adafruit_GFX_Library"](/Librairies/Adafruit_GFX_Library) et ["Adafruit_SSD1306"](/Librairies/Adafruit_SSD1306) nous permettant le contrôle de nos modules, ainsi que la librairie [Adafruit_BusIO](/Librairies/Adafruit_BusIO) permettant de gérer la connexion en I2C et SPI.
 
 
 ### 2.2. Code Arduino
