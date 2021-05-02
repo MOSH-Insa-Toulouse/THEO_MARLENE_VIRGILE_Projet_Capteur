@@ -1,4 +1,0 @@
-(X) Captures d'écran appli + explications
-( ) Ecrire sur le readme (analyse de résultats + lignes 17 22)
-( ) Data sheet à boucler
-( ) checker si le code est fait et expliqué
