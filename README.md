@@ -175,7 +175,7 @@ Utiliser un servomoteur nous permet de gérer facilement la rotation de la pièc
 
 **Le code Arduino**
 
-Nous avons utilisé [ce code Arduino](/Programme%20Arduino/Banc%20de%20test/Servomoteur) qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur.  
+Nous avons utilisé [ce code Arduino](/Programme%20Arduino/Banc%20de%20test/Servomoteur) qui nous permet de changer la plage de rotation du servomoteur. Il nous permet en modifiant les lignes 17 et 22 de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur.  
 
 
                                                                                               
@@ -185,18 +185,19 @@ Nous avons utilisé [ce code Arduino](/Programme%20Arduino/Banc%20de%20test/Serv
 
 
 ### 6.2. Résultats obtenus
-<img src="/Images/Graphs.png" width="700" height="900"> 
 
 **Avec le banc de test utilisant le servomoteur**
 
 <img src="/Images/Graph%20temps.png" width="800" height="400">   
 
 Nous pouvons voir que la jauge réagit de façon périodique à la contrainte du banc en dynamique. 
-En effet, lors de l’augmentation du rayon de la pièce en escargot, nous observons une augmentation quasi-linéaire de la résistance (cf courbe ci-dessus zone 1). 
-Lors de la diminution de celui-ci, nous observons une diminution quasi-linéaire de la résistance de la jauge de contrainte (cf courbe ci-dessus zone 2).
+En effet, lors de la diminution du rayon de la pièce en escargot, nous observons une augmentation quasi-linéaire de la résistance (cf courbe ci-dessus zone 1). 
+Lors de l'augmentation de celui-ci, nous observons une diminution quasi-linéaire de la résistance de la jauge de contrainte (cf courbe ci-dessus zone 2).
 Nous observons également une plage de données instable entre ces deux phases. Cette réponse du capteur est due à l’imperfection de notre banc (cf courbe ci-dessus zone 3). En effet, lorsque l’on arrive au bout de la course du servomoteur, le capteur ne suit pas complètement l’évolution du rayon de courbure, et entre en contact avec une autre surface de la pièce en « escargot » que celle souhaitée. 
 
 **Avec le banc de test déjà réalisé**
+
+<img src="/Images/Graphs.png" width="700" height="900"> 
 
 Comme nous pouvons l’observer sur les graphiques ci-dessus, la plupart des réponses des jauges aux déformations appliquées à l’aide du banc de test statique suivent une évolution quasi-linéaire. 
 
@@ -204,16 +205,16 @@ La résistance sans contrainte varie du simple au double entre deux jauges produ
 
 Les variations de résistance sont plus importantes lorsque la dureté du crayon est plus élevée. En effet, pour le HB nous avons pu observer au maximum une variation de 5 à 20 MOhms et pour le 2B de 4 à 5 MOhms. 
 
-Les facteurs de jauge obtenus sont de :
-- 6,48 et 3,22 pour les essais 1 et 2 avec des jauges dessinées avec des crayons 2B
-- 6,08 et 11,36 pour les essais 1 et 2 avec des jauges dessinées avec des crayons B
-- 13,15 et 27,21 pour les essais 1 et 2 avec des jauges dessinées avec des crayons HB
+Les facteurs de jauge obtenus en faisant une approximation linéaire sont de :
+- 6,5 et 3,2 pour les essais 1 et 2 avec des jauges dessinées avec des crayons 2B
+- 6,1 et 11,4 pour les essais 1 et 2 avec des jauges dessinées avec des crayons B
+- 13,1 et 27,2 pour les essais 1 et 2 avec des jauges dessinées avec des crayons HB
 
 
 
 ### 6.3. Analyse des résultats et discussion
 
-Nous observons à l’aide de notre banc de test utilisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
+Nous observons à l’aide de **notre banc de test** utilisant le servomoteur que le capteur retrouve sa valeur initiale de résistance entre chaque mise sous contrainte. Nous n’observons donc pas de fatigue de la jauge dans la gamme de contraintes que nous appliquons : il faudrait effectuer des tests sur de très longues périodes avant d’apercevoir d’éventuelles fatigues. 
 
 Concernant les imprécisions de la zone de mesure se situant en bout de course du servomoteur, plusieurs améliorations sont envisageables : 
  - Concevoir la pièce « escargot » en miroir, de façon à toujours avoir un rayon plus petit sous la jauge au lieu du contraire actuellement
@@ -224,7 +225,7 @@ Nous aurions pu également réfléchir en amont au calcul de contrainte qui aura
 Ces différents résultats mettent en valeur les avantages et les limites de ce type de jauges de contrainte.   
 
 
-Pour ce qui est du banc de test déjà réalisé, nous constatons que les jauges réalisées, ont d'après les essais, des facteurs de jauge très élevés avec l’utilisation de crayons à papier à pointe dure, mais que, si le crayon dépose trop peu de graphite, des problèmes de continuité électrique se posent.  
+Pour ce qui est du **banc de test déjà réalisé**, nous constatons que les jauges réalisées ont, d'après les essais, des facteurs de jauge très élevés avec l’utilisation de crayons à papier à pointe dure, mais que, si le crayon dépose trop peu de graphite, des problèmes de continuité électrique se posent.  
 
 Une des principales limites est donc la dépose du graphite. En effet, nous remarquons des différences de quasiment un facteur 2 entre les facteurs de jauge des capteurs dessinés en 2B, B et HB. 
 Ces différences peuvent être dûes à :
@@ -238,3 +239,5 @@ Néanmoins, le processus de dessin doit être optimisé car il y a beaucoup trop
 
 
 ## 7. Datasheet
+
+La [Datasheet](/Datasheet) présente l'ensemble des caractéristiques des jauges que nous avons réalisées ainsi que du shield qui permet de traduire un relevé de tension en mesure de résistance. L'objectif final est de revenir à une mesure de déformation. 
