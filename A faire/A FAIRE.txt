@@ -1,4 +1,4 @@
 (X) Captures d'écran appli + explications
-( ) Ecrire sur le readme (photos + explications banc, capture d'écran kikad, explications, app)
-( ) Analyser les données et faire des graphs
+( ) Ecrire sur le readme (analyse de résultats + lignes 17 22)
 ( ) Data sheet à boucler
+( ) checker si le code est fait et expliqué

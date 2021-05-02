@@ -55,9 +55,18 @@ Pour développer notre code, nous avons utilisé plusieurs librairies :["Adafrui
 
 ### 2.2. Code Arduino
 
-[Le code](/Programme%20Arduino) développé sous Arduino IDE permet la communication du module Bluetooth, de l'OLED ou encore de l'encodeur rotatoire avec le téléphone portable (réception et envoi de données sous forme de bits).
-Il permet de récupérer tout d'abord une valeur de tension, puis la valeur de résistance correspondante en fonction de la courbure du capteur.  
-Cette valeur est ensuite affichée sur l'écran OLED, ainsi que différents menus via l'encodeur rotatoire. 
+Le code [prog_arduino](/Programme%20Arduino/prog_arduino) développé sous Arduino IDE permet d'assurer la communication de tous les éléments de notre carte Arduino (Module Bluetooth, Oled et encodeur rotatoire) afin de réaliser des fonctions voulues. Nous avons ainsi réalisé quatre menus différents qui permettent de réaliser des tâches différentes. 
+
+- Le premier menu permet d'afficher sur l'Oled la valeur de résistance de la jauge de contrainte traduite par l'acquisition de la tension de sortie de notre circuit électronique. Il permet aussi d'envoyer via le module bluetooth la valeur de tension mesurée entre 0 et 5 volts, sous la forme d'un nombre codé en 8 bits : 0 correspondant à 0V et 255 correspondant à 5V. L'objectif de cet envoi est d'ensuite le récupérer via notre application APK pour pouvoir traiter les données.
+- Le second menu est assez similaire. La seule différence réside sur l'affichage de l'Oled. On n'affiche plus la valeur de résistance mais la valeur de tension. 
+-  Le troisième menu permet de définir un temps d'acquisition sur l'application. On choisit la valeur en secondes grâce à l'encodeur rotatoire et lorsqu'on sélectionne la valeur choisie, elle s'envoie par Bluetooth pour être récupérée et enregistrée par l'application.
+-  Le quatrième menu fonctionne de la même manière que le troisième mais permet de changer la valeur de R2 que l'on a laissé variable afin de s'adapter à la plage de mesure de la résistance du capteur. On entre la valeur voulue grâce à l'encodeur rotatoire. 
+
+
+Les codes contenus dans les dossiers [BT_Test](/Programme%20Arduino/BT_Test), [ENC_TEST](/Programme%20Arduino/ENC_TEST) et [OLED_TEST](/Programme%20Arduino/OLED_TEST) permettent de vérifier individuellement l'état de fonctionnement de chaque module ajouté à notre shield. 
+
+
+Enfin, Le code Arduino [Servomoteur](/Programme%20Arduino/Banc%20de%20test/Servomoteur) permet de contrôler notre banc de test et sera plus amplement expliqué dans la partie **6. Tests**.
  
 
 ## 3. KICAD
@@ -135,7 +144,7 @@ Il permet de mesurer la déformation du capteur en fonction du temps grâce à u
  - La première étant la limite principale du banc de test déjà existant : il était destructif. En effet à chaque utilisation de celui-ci le capteur devenait inutilisable par la suite. Il nous était donc impossible de revenir aux valeurs initiales de résistances après passage du capteur sur le banc de test. 
 - La seconde étant la volonté d’observer l’évolution en dynamique de la réponse du capteur afin de déterminer une potentielle fatigue de celui-ci lors d’un test cyclique. 
 
-Nous avons donc réfléchi à un design permettant une installation fixe du capteur qui ne nécessitait plus d’action extérieure au cours de la mesure, et qui pouvait faire périodiquement une application de contrainte identique sur notre capteur. Pour cela, notre banc a été conçu en 3 parties : le socle, la pièce « escargot » et le servomoteur, pilotés via un code Arduino supplémentaire. 
+Nous avons donc réfléchi à un design permettant une installation fixe du capteur qui ne nécessitait plus d’action extérieure au cours de la mesure, et qui pouvait faire périodiquement une application de contrainte identique sur notre capteur. Pour cela, notre banc a été conçu en 3 parties : le socle, la pièce « escargot » et le servomoteur, pilotés via [un code Arduino](/Programme%20Arduino/Banc%20de%20Test/Servomoteur) supplémentaire. 
 
 **Le socle**
 
@@ -166,9 +175,9 @@ Utiliser un servomoteur nous permet de gérer facilement la rotation de la pièc
 
 **Le code Arduino**
 
-Nous avons utilisé ce code Arduino qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur.  
-  
-  
+Nous avons utilisé [ce code Arduino](/Programme%20Arduino/Banc%20de%20test/Servomoteur) qui nous permet de changer la plage de rotation du servomoteur. L’objectif étant de balayer la plus grande différence de rayon possible tout en ne dépassant jamais le bout de course de la pièce escargot afin de ne pas détruire le capteur.  
+
+
                                                                                               
 
 #### Le banc de test déjà réalisé composé de 7 demi-cercles dont les rayons varient de 1 à 2,5 cm. 
